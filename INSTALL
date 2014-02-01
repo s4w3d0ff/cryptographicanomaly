@@ -1,0 +1,9 @@
+Building Cryptographicanomaly
+
+See doc/readme-qt.rst for instructions on building Cryptographicanomaly-Qt,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of Cryptographicanomaly.
+
+See doc/build-*.txt for instructions on building cryptographicanomalyd,
+the intended-for-services, no-graphical-interface, reference
+implementation of Cryptographicanomaly.

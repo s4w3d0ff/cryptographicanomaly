@@ -1,0 +1,6 @@
+cryptographicanomaly-qt usr/bin
+share/pixmaps/cryptographicanomaly32.xpm usr/share/pixmaps
+share/pixmaps/cryptographicanomaly16.xpm usr/share/pixmaps
+share/pixmaps/cryptographicanomaly128.png usr/share/pixmaps
+debian/cryptographicanomaly-qt.desktop usr/share/applications
+debian/cryptographicanomaly-qt.protocol usr/share/kde4/services/
