@@ -1066,39 +1066,32 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {        
-   
+    
     int64 nSubsidy = 0 * COIN;
     double diff = GetDifficulty();
     double block = nHeight;
     double remain = fmod(block, diff);
-    	if(block <= 10 )
-    	{
-        	if(remain < 1 && remain > 0.00001)
-            {
-			nSubsidy = 1 * COIN;
-            }
-    	}
-        else if(block <= 10000)
-        {
-            if(remain < 1 && remain > 0.1)
-            {
+    if(block <= 5)
+	{
+			if(remain < 1 && remain > 0.1)
+        	{
             nSubsidy = 1 * COIN;
             }
-        }
-        else if(block > 10000)
-        {
-    		if(diff < 3)
-        	{
-                if(fmod(block,3) == 0)
-                {
-                nSubsidy = 1 * COIN;
-                }
-                else
-                {
-                nSubsidy = 0 * COIN;
-                }
-        	}
+	}
+	else if(block > 5)
+	{
+    	if(diff < 3)				 
+    	{
+    		if(fmod(block,3) == 0) 
+    		{
+    		nSubsidy = 1 * COIN;
+			}
+			else
+			{
+			nSubsidy = 0 * COIN;
+			}
     	}
+	}
     return nSubsidy + nFees;
 }
 
