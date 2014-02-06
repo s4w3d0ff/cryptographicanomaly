@@ -29,8 +29,8 @@
 #include "macdockiconhandler.h"
 #endif
 
-#if defined(CGABAR_NEED_QT_PLUGINS) && !defined(_CGABAR_QT_PLUGINS_INCLUDED)
-#define _CGABAR_QT_PLUGINS_INCLUDED
+#if defined(CGA_NEED_QT_PLUGINS) && !defined(_CGA_QT_PLUGINS_INCLUDED)
+#define _CGA_QT_PLUGINS_INCLUDED
 #define __INSURE__
 #include <QtPlugin>
 Q_IMPORT_PLUGIN(qcncodecs)
@@ -114,7 +114,7 @@ static void handleRunawayException(std::exception *e)
     exit(1);
 }
 
-#ifndef CGABAR_QT_TEST
+#ifndef CGA_QT_TEST
 int main(int argc, char *argv[])
 {
     // Command-line options take precedence:
@@ -307,4 +307,4 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
-#endif // CGABAR_QT_TEST
+#endif // CGA_QT_TEST

@@ -12,8 +12,8 @@
 // - E-mail usually won't line-break if there's no punctuation to break at.
 // - Double-clicking selects the whole number as one word if it's all alphanumeric.
 //
-#ifndef CGABAR_BASE58_H
-#define CGABAR_BASE58_H
+#ifndef CGA_BASE58_H
+#define CGA_BASE58_H
 
 #include <string>
 #include <vector>
@@ -457,4 +457,4 @@ public:
     }
 };
 
-#endif // CGABAR_BASE58_H
+#endif // CGA_BASE58_H

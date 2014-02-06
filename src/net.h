@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2012 The Litecoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGABAR_NET_H
-#define CGABAR_NET_H
+#ifndef CGA_NET_H
+#define CGA_NET_H
 
 #include <deque>
 #include <boost/array.hpp>

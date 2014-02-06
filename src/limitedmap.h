@@ -1,8 +1,8 @@
 // Copyright (c) 2012 The Litecoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGABAR_LIMITEDMAP_H
-#define CGABAR_LIMITEDMAP_H
+#ifndef CGA_LIMITEDMAP_H
+#define CGA_LIMITEDMAP_H
 
 #include <map>
 #include <deque>

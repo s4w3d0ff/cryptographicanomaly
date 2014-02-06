@@ -1,5 +1,5 @@
-#ifndef CGABARAMOUNTFIELD_H
-#define CGABARAMOUNTFIELD_H
+#ifndef CGAAMOUNTFIELD_H
+#define CGAAMOUNTFIELD_H
 
 #include <QWidget>
 
@@ -58,4 +58,4 @@ private slots:
 
 };
 
-#endif // CGABARAMOUNTFIELD_H
+#endif // CGAAMOUNTFIELD_H

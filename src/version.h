@@ -1,8 +1,8 @@
 // Copyright (c) 2012 The Litecoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGABAR_VERSION_H
-#define CGABAR_VERSION_H
+#ifndef CGA_VERSION_H
+#define CGA_VERSION_H
 
 #include "clientversion.h"
 #include <string>

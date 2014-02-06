@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGABAR_TXDB_LEVELDB_H
-#define CGABAR_TXDB_LEVELDB_H
+#ifndef CGA_TXDB_LEVELDB_H
+#define CGA_TXDB_LEVELDB_H
 
 #include "main.h"
 #include "leveldb.h"
@@ -50,4 +50,4 @@ public:
     bool LoadBlockIndexGuts();
 };
 
-#endif // CGABAR_TXDB_LEVELDB_H
+#endif // CGA_TXDB_LEVELDB_H

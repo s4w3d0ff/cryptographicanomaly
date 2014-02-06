@@ -1,5 +1,5 @@
-#ifndef CGABARGUI_H
-#define CGABARGUI_H
+#ifndef CGAGUI_H
+#define CGAGUI_H
 
 #include <QMainWindow>
 #include <QSystemTrayIcon>
@@ -197,4 +197,4 @@ private slots:
     void detectShutdown();
 };
 
-#endif // CGABARGUI_H
+#endif // CGAGUI_H

@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef H_CGABAR_SCRIPT
-#define H_CGABAR_SCRIPT
+#ifndef H_CGA_SCRIPT
+#define H_CGA_SCRIPT
 
 #include <string>
 #include <vector>

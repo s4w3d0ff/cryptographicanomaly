@@ -3,8 +3,8 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef _CGABARALERT_H_
-#define _CGABARALERT_H_ 1
+#ifndef _CGAALERT_H_
+#define _CGAALERT_H_ 1
 
 #include <set>
 #include <string>

@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGABAR_WALLETDB_H
-#define CGABAR_WALLETDB_H
+#ifndef CGA_WALLETDB_H
+#define CGA_WALLETDB_H
 
 #include "db.h"
 #include "base58.h"
@@ -160,4 +160,4 @@ public:
     static bool Recover(CDBEnv& dbenv, std::string filename);
 };
 
-#endif // CGABAR_WALLETDB_H
+#endif // CGA_WALLETDB_H

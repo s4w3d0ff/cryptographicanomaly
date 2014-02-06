@@ -24,8 +24,8 @@
 
 using namespace boost;
 
-const int CGABAR_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString CGABAR_IPC_PREFIX("cryptographicanomaly:");
+const int CGA_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
+const QString CGA_IPC_PREFIX("cryptographicanomaly:");
 
 //
 // Create a name that is unique for:
@@ -65,7 +65,7 @@ bool PaymentServer::ipcSendCommandLine()
     const QStringList& args = qApp->arguments();
     for (int i = 1; i < args.size(); i++)
     {
-        if (!args[i].startsWith(CGABAR_IPC_PREFIX, Qt::CaseInsensitive))
+        if (!args[i].startsWith(CGA_IPC_PREFIX, Qt::CaseInsensitive))
             continue;
         savedPaymentRequests.append(args[i]);
     }
@@ -74,7 +74,7 @@ bool PaymentServer::ipcSendCommandLine()
     {
         QLocalSocket* socket = new QLocalSocket();
         socket->connectToServer(ipcServerName(), QIODevice::WriteOnly);
-        if (!socket->waitForConnected(CGABAR_IPC_CONNECT_TIMEOUT))
+        if (!socket->waitForConnected(CGA_IPC_CONNECT_TIMEOUT))
             return false;
 
         QByteArray block;
@@ -85,7 +85,7 @@ bool PaymentServer::ipcSendCommandLine()
         socket->write(block);
         socket->flush();
 
-        socket->waitForBytesWritten(CGABAR_IPC_CONNECT_TIMEOUT);
+        socket->waitForBytesWritten(CGA_IPC_CONNECT_TIMEOUT);
         socket->disconnectFromServer();
         delete socket;
         fResult = true;

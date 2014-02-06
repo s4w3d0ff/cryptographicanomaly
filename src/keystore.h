@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGABAR_KEYSTORE_H
-#define CGABAR_KEYSTORE_H
+#ifndef CGA_KEYSTORE_H
+#define CGA_KEYSTORE_H
 
 #include "crypter.h"
 #include "sync.h"

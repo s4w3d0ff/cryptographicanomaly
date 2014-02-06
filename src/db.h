@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGABAR_DB_H
-#define CGABAR_DB_H
+#ifndef CGA_DB_H
+#define CGA_DB_H
 
 #include "main.h"
 
@@ -324,4 +324,4 @@ public:
     bool Read(CAddrMan& addr);
 };
 
-#endif // CGABAR_DB_H
+#endif // CGA_DB_H

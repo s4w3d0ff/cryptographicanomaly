@@ -1,5 +1,5 @@
-#ifndef CGABARADDRESSVALIDATOR_H
-#define CGABARADDRESSVALIDATOR_H
+#ifndef CGAADDRESSVALIDATOR_H
+#define CGAADDRESSVALIDATOR_H
 
 #include <QValidator>
 
@@ -18,4 +18,4 @@ public:
     static const int MaxAddressLength = 35;
 };
 
-#endif // CGABARADDRESSVALIDATOR_H
+#endif // CGAADDRESSVALIDATOR_H

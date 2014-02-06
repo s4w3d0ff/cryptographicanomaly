@@ -1,8 +1,8 @@
 // Copyright (c) 2012 The Litecoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGABAR_BLOOM_H
-#define CGABAR_BLOOM_H
+#ifndef CGA_BLOOM_H
+#define CGA_BLOOM_H
 
 #include <vector>
 
@@ -88,4 +88,4 @@ public:
     void UpdateEmptyFull();
 };
 
-#endif /* CGABAR_BLOOM_H */
+#endif /* CGA_BLOOM_H */

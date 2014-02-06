@@ -2,8 +2,8 @@
 // Copyright (c) 2009-2014 The Bitcoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGABAR_UINT256_H
-#define CGABAR_UINT256_H
+#ifndef CGA_UINT256_H
+#define CGA_UINT256_H
 
 #include <limits.h>
 #include <stdio.h>
