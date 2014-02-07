@@ -98,7 +98,7 @@ CoinControlDialog::CoinControlDialog(QWidget *parent) :
     // click on header
     #if QT_VERSION < 0x050000
      ui->treeWidget->header()->setClickable(true);
-    else
+    #else
      ui->treeWidget->header()->setSectionsClickable(true);
     #endif
     connect(ui->treeWidget->header(), SIGNAL(sectionClicked(int)), this, SLOT(headerSectionClicked(int)));
