@@ -1078,14 +1078,14 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 			nSubsidy = 1 * COIN;
             }
     	}
-        else if(block <= 10000)
+        else if(block <= 15000)
         {
             if(remain < 1 && remain > 0.1)
             {
             nSubsidy = 1 * COIN;
             }
         }
-        else if(block > 10000)
+        else if(block > 15000)
         {
     		if(diff < 3)
         	{
