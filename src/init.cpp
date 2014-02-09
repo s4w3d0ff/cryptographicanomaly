@@ -879,6 +879,45 @@ bool AppInit2(boost::thread_group& threadGroup)
         }
     }
 
+    //If the blocks directory exists, make sure the blockchain has our canary
+    else
+    {
+        filesystem::path blockcanary = blocksDir / ".correctblockchain";
+
+        //If it doesn't, rename the blocks directory to blocks.old and make a new one with our canary inside
+        if(!filesystem::exists(blockcanary))
+        {
+            ///Debug print
+            printf("Forked block chain - wiping!\n");
+           
+            //Rename blocks directory
+            filesystem::rename(blocksDir, GetDataDir() / "blocks.old");
+
+            //Make new blocks directory
+            if(filesystem::create_directory(blocksDir))
+           {
+               //Make canary
+               FILE *canary = fopen(blockcanary.string().c_str(), "w");
+               
+              if(canary != NULL)
+              {
+                  //Clean up
+                  fclose(canary);
+
+                 ///Debug print
+                 printf("Block chain successfully wiped.\n");
+              }
+
+              else
+                 return InitError(_("Failed to create canary"));
+           }
+
+          else
+             return InitError(_("Failed to create new blocks directory"));
+        }
+
+    }
+
     // cache size calculations
     size_t nTotalCache = GetArg("-dbcache", 25) << 20;
     if (nTotalCache < (1 << 22))
