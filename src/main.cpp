@@ -52,9 +52,9 @@ bool fTxIndex = false;
 unsigned int nCoinCacheSize = 5000;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-int64 CTransaction::nMinTxFee = 1000;
+int64 CTransaction::nMinTxFee = 100000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
-int64 CTransaction::nMinRelayTxFee = 1000;
+int64 CTransaction::nMinRelayTxFee = 100000;
 
 CMedianFilter<int> cPeerBlockCounts(8, 0); // Amount of blocks that other nodes claim to have
 
@@ -1066,26 +1066,25 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
 {        
-   
     int64 nSubsidy = 0 * COIN;
     double diff = GetDifficulty();
     double block = nHeight;
     double remain = fmod(block, diff);
-    	if(block <= 10 )
+    if(block <= 10 )
     	{
         	if(remain < 1 && remain > 0.00001)
             {
 			nSubsidy = 1 * COIN;
             }
     	}
-        else if(block <= 15000)
+    else if(block <= 15000)
         {
             if(remain < 1 && remain > 0.1)
             {
             nSubsidy = 1 * COIN;
             }
         }
-        else if(block > 15000)
+    else if(block > 15000)
         {
     		if(diff < 3)
         	{
@@ -1098,6 +1097,31 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
                 nSubsidy = 0 * COIN;
                 }
         	}
+        }
+    else if(block > 19000)
+    	{
+        	if(diff < 3)
+        	{
+                if(fmod(block,3) == 0)
+                {
+                nSubsidy = 1 * COIN;
+                }
+                else
+                {
+                nSubsidy = 0 * COIN;
+                }
+        	}
+        	else if(diff > 3)
+        	{
+        		if(remain < 1)
+           		{
+            	nSubsidy = 1 * COIN;
+            	}
+            	else
+                {
+                nSubsidy = 0 * COIN;
+                }
+            }
     	}
     return nSubsidy + nFees;
 }
@@ -2866,13 +2890,7 @@ bool InitBlockIndex() {
 
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
-        // Genesis Block:
-        // CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1317972665, nBits=1e0ffff0, nNonce=2084524493, vtx=1)
-        //   CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536)
-        //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-        //   vMerkleTree: 97ddfbbae6
-
+        
         // Genesis block
         const char* pszTimestamp = "Sat, 01 Feb 2014 16:29:13 GMT";
         CTransaction txNew;

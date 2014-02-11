@@ -11,7 +11,7 @@ Cryptographicanomaly is a modified clone of Litecoin, which is a lite version of
 It is the rarest coin that has ever been made. 
 
 It works by using the modulus operation thus finding the remainder of the current block number (nHeight) divided by the current difficulty. 
-If the remainder falls between 1 and 0.1 then the block reward changes to 1 for that block. 
+If the remainder falls between 1 and 0 then the block reward changes to 1 for that block. 
 
 Bonuses:
 
@@ -19,9 +19,9 @@ If the remainder is exactly 0 (difficulty divides evenly into the block number) 
 If the remainder is exactly 100 then the block reward changes to 100 for that block.
 
 	Total possible Anomalies: 10 Billion
-	Anomalies per block: 0 (unless certen paramaters are met)
+	Anomalies per block: 0
 	Block Time: 40 sec
-	Difficulty Refresh: 120 sec / 3 blocks
+	Difficulty Refresh: 80 sec / 2 blocks
 	Mined Out: ??? Nobody Knows ???
 	RPC=13932
 	P2P=13931
