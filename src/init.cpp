@@ -857,6 +857,18 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (!filesystem::exists(blocksDir))
     {
         filesystem::create_directories(blocksDir);
+            //Make canary
+            filesystem::path blockcanary = blocksDir / ".correctblockchain";
+            FILE *canary = fopen(blockcanary.string().c_str(), "w");
+
+            if(canary != NULL)
+            {
+                //Clean up
+                fclose(canary);
+            }
+
+            else
+                return InitError(_("Failed to create canary"));
         bool linked = false;
         for (unsigned int i = 1; i < 10000; i++) {
             filesystem::path source = GetDataDir() / strprintf("blk%04u.dat", i);
@@ -876,6 +888,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         if (linked)
         {
             fReindex = true;
+
         }
     }
 
@@ -905,7 +918,10 @@ bool AppInit2(boost::thread_group& threadGroup)
                   fclose(canary);
 
                  ///Debug print
-                 printf("Block chain successfully wiped.\n");
+                 printf("Block chain successfully wiped.\nReindexing blockchain.\n");
+
+                 //Reindex blockchain
+                 fReindex = true;
               }
 
               else
