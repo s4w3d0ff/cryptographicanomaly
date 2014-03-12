@@ -1084,7 +1084,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
             nSubsidy = 1 * COIN;
             }
         }
-    else if(block > 15000)					// Update 1.1.1.2 (can you see where I fudged it up?)
+    else if(block <= 19000 )
         {
     		if(diff < 3)
         	{
@@ -1098,7 +1098,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
                 }
         	}
         }
-    else if(block > 19000)					// Update 1.1.2.2
+    else if(block <= 60000)
     	{
         	if(diff < 3)
         	{
@@ -1123,7 +1123,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
                 }
             }
     	}
-    else if(block > 48000 )					// Update 1.2.1.1
+    else if(block > 60000 )					// Update 1.3.0.1
     	{
     		if(diff <= 3)
     		{

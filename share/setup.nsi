@@ -5,7 +5,7 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.2.1.1
+!define VERSION 1.3.0.1
 !define COMPANY "Cryptographicanomaly"
 !define URL http://CGAnomaly.com
 
