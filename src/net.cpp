@@ -1195,7 +1195,7 @@ static const char *strMainNetDNSSeed[][2] = {
     {"AnomalyPool 1", "node1.cga.anomalypool.com"},
     {"AnomalyPool 2", "node2.cga.anomalypool.com"},
     {"cga.inceptioncraft.net", "cga.inceptioncraft.net"},
-    {"cga.thedigitalmint.org", "cga.thedigitalmint.org"}
+    {"cga.thedigitalmint.org", "cga.thedigitalmint.org"},
     {"Developer Node", "71.105.130.10"},
     {NULL, NULL}
 };
