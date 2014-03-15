@@ -89,7 +89,7 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
   OSX binaries are created by Gavin Andresen on a 32-bit, OSX 10.6 machine.
 
-	qmake RELEASE=1 USE_UPNP=1 USE_QRCODE=1 cryptographicanomaly-qt.pro
+	qmake RELEASE=1 USE_QRCODE=1 cryptographicanomaly-qt.pro
 	make
 	export QTDIR=/opt/local/share/qt4  # needed to find translations/qt_*.qm files
 	T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)

@@ -25,14 +25,13 @@ Libraries you need to download separately and build:
 OpenSSL         \openssl-1.0.1c-mgw        http://www.openssl.org/source/
 Berkeley DB     \db-4.8.30.NC-mgw          http://www.oracle.com/technology/software/products/berkeley-db/index.html
 Boost           \boost-1.50.0-mgw          http://www.boost.org/users/download/
-miniupnpc       \miniupnpc-1.6-mgw         http://miniupnp.tuxfamily.org/files/
+
 
 Their licenses:
 
 	OpenSSL        Old BSD license with the problematic advertising requirement
 	Berkeley DB    New BSD license with additional requirement that linked software must be free open source
 	Boost          MIT-like license
-	miniupnpc      New (3-clause) BSD license
 
 Versions used in this release:
 
@@ -69,16 +68,6 @@ DOS prompt:
 	cd \boost-1.50.0-mgw
 	bjam toolset=gcc --build-type=complete stage
 
-MiniUPnPc
----------
-UPnP support is optional, make with `USE_UPNP=` to disable it.
-
-MSYS shell:
-
-	cd /c/miniupnpc-1.6-mgw
-	make -f Makefile.mingw
-	mkdir miniupnpc
-	cp *.h miniupnpc/
 
 Cryptographicanomaly
 -------

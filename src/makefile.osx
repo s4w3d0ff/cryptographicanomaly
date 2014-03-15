@@ -19,7 +19,6 @@ LIBPATHS= \
  -L"$(DEPSDIR)/lib" \
  -L"$(DEPSDIR)/lib/db48"
 
-USE_UPNP:=1
 USE_IPV6:=1
 
 LIBS= -dead_strip
@@ -109,18 +108,6 @@ ifdef USE_SSE2
 DEFS += -DUSE_SSE2
 OBJS_SSE2= obj/scrypt-sse2.o
 OBJS += $(OBJS_SSE2)
-endif
-
-ifndef USE_UPNP
-	override USE_UPNP = -
-endif
-ifneq (${USE_UPNP}, -)
-	DEFS += -DUSE_UPNP=$(USE_UPNP)
-ifdef STATIC
-	LIBS += $(DEPSDIR)/lib/libminiupnpc.a
-else
-	LIBS += -lminiupnpc
-endif
 endif
 
 ifneq (${USE_IPV6}, -)

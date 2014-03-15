@@ -1098,49 +1098,49 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
                 }
         	}
         }
-    else if(block <= 60000)
-    	{
-        	if(diff < 3)
-        	{
-                if(fmod(block,3) == 0)
-                {
+    else if(block <= 64000)
+	{
+		if(diff < 3)
+		{
+        	if(fmod(block,3) == 0)
+            {
                 nSubsidy = 1 * COIN;
-                }
-                else
-                {
-                nSubsidy = 0 * COIN;
-                }
-        	}
-        	else if(diff > 3)
-        	{
-        		if(remain < 1)
-           		{
-            	nSubsidy = 1 * COIN;
-            	}
-            	else
-                {
-                nSubsidy = 0 * COIN;
-                }
             }
-    	}
-    else if(block > 60000 )					// Update 1.3.0.1
-    	{
-    		if(diff <= 3)
-    		{
-    		 	nSubsidy = 1 / 3 * COIN;
-    		}
-    		else if(diff > 3)
-    		{
-    			if(remain < 0.5)
-    			{
-    			nSubsidy = 1 * COIN;
-    			}
-    			else
-    			{
-    			nSubsidy = 1 / diff * COIN;
-    			}
-    		}
-    	}
+            else
+            {
+                nSubsidy = 0 * COIN;
+            }
+        }
+        else if(diff > 3)
+        {
+        	if(remain < 1)
+           	{
+            	nSubsidy = 1 * COIN;
+            }
+            else
+            {
+                nSubsidy = 0 * COIN;
+            }
+        }
+    }
+	else if(block > 64000 )					// Update 1.3.0.1
+	{
+		if(diff <= 3)
+		{
+			nSubsidy = 0.33333333 * COIN;
+		}
+		else if(diff > 3)
+		{
+			if(remain < 0.25)
+			{
+				nSubsidy = 1 * COIN;
+			}
+			else
+			{
+			nSubsidy = 1 / diff * COIN;
+			}
+		}
+	}
     return nSubsidy + nFees;
 }
 

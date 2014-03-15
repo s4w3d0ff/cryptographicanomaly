@@ -59,14 +59,14 @@ Mac OS X
 ::
 
 	sudo port selfupdate
-	sudo port install boost db48 miniupnpc
+	sudo port install boost db48
 
 - Execute the following commands in a terminal to get the dependencies using HomeBrew:
 
 ::
 
 	brew update
-	brew install boost miniupnpc openssl berkeley-db4
+	brew install boost openssl berkeley-db4
 
 - If using HomeBrew,  edit `cryptographicanomaly-qt.pro` to account for library location differences. There's a diff in `contrib/homebrew/cryptographicanomaly-qt-pro.patch` that shows what you need to change, or you can just patch by doing
 
@@ -81,30 +81,6 @@ Mac OS X
 
 Build configuration options
 ============================
-
-UPnP port forwarding
----------------------
-
-To use UPnP for port forwarding behind a NAT router (recommended, as more connections overall allow for a faster and more stable cryptographicanomaly experience), pass the following argument to qmake:
-
-::
-
-    qmake "USE_UPNP=1"
-
-(in **Qt Creator**, you can find the setting for additional qmake arguments under "Projects" -> "Build Settings" -> "Build Steps", then click "Details" next to **qmake**)
-
-This requires miniupnpc for UPnP port mapping.  It can be downloaded from
-http://miniupnp.tuxfamily.org/files/.  UPnP support is not compiled in by default.
-
-Set USE_UPNP to a different value to control this:
-
-+------------+--------------------------------------------------------------------------+
-| USE_UPNP=- | no UPnP support, miniupnpc not required;                                 |
-+------------+--------------------------------------------------------------------------+
-| USE_UPNP=0 | (the default) built with UPnP, support turned off by default at runtime; |
-+------------+--------------------------------------------------------------------------+
-| USE_UPNP=1 | build with UPnP support turned on by default at runtime.                 |
-+------------+--------------------------------------------------------------------------+
 
 Notification support for recent (k)ubuntu versions
 ---------------------------------------------------
