@@ -1,6 +1,6 @@
 #Cryptographic Anomaly - [CGA]
 
-![Cryptographicanomaly](http://i61.tinypic.com/30ry4w5.png)
+![Cryptographicanomaly](http://cganomaly.com/imgs/newlogo.png)
 
 The Elusive Coin
 
@@ -12,10 +12,10 @@ Cryptographic Anomaly is a modified clone of Litecoin, which is a lite version o
 	Scrypt Algorithm
 	Total possible Anomalies: 10 Billion
 	Anomalies per block: 1/diff
-	Bonus Block: if(fmod(block,diff) < 0.5){ 1 CGA }
+	Bonus Block: if(fmod(block,diff) < 0.25){ 1 CGA }
 	Block Time: 40 sec
 	Difficulty Refresh: 80 sec / 2 blocks
-	Mined Out: ??? Nobody Knows ???
+	Mined Out: No less than 50,000 years
 	RPC=13932
 	P2P=13931
 
