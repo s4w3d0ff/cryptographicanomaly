@@ -3279,6 +3279,7 @@ void static ProcessGetData(CNode* pfrom)
                 }
                 if (!pushed) {
                     vNotFound.push_back(inv);
+
                 }
             }
 
@@ -3361,6 +3362,22 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             pfrom->addrLocal = addrMe;
             SeenLocal(addrMe);
         }
+        if (pfrom->strSubVer == "/Satoshi:1.2.1.1/")
+        {
+            // disconnect from old wallets
+            printf("partner %s is using an old wallet! (1.2.1.1); disconnecting\n", pfrom->addr.ToString().c_str());
+            pfrom->fDisconnect = true;
+            return false;
+        }
+ 
+        if (pfrom->strSubVer == "/Satoshi:1.1.2.2/")
+        {
+            // disconnect from old wallets
+            printf("partner %s is using an old wallet! (1.1.2.2); disconnecting\n", pfrom->addr.ToString().c_str());
+            pfrom->fDisconnect = true;
+            return false;
+        }
+        
 
         // Disconnect if we connected to ourself
         if (nNonce == nLocalHostNonce && nNonce > 1)
