@@ -1123,7 +1123,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
             }
         }
     }
-	else if(block > 64000 )					// Update 1.3.0.1
+	else if(block <= 71000 )					// Update 1.3.0.1
 	{
 		if(diff <= 3)
 		{
@@ -1138,6 +1138,28 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 			else
 			{
 			nSubsidy = 1 / diff * COIN;
+			}
+		}
+	}
+	else if(block > 71000 )					// Update 1.3.2.1
+	{
+		if(diff <= 3)
+		{
+			nSubsidy = 0.33333333 * COIN;
+		}
+		else if(diff > 3)
+		{
+		double remainRndDwn = floor( pow(10.0,8) * remain ) / pow(10.0,8);
+		
+			if(remain < 0.25)
+			{
+			nSubsidy = 1 * COIN;
+			}
+			else
+			{
+			double reward = 1/diff;
+			double rewardRndDwn = floor( pow(10.0,8) * reward ) / pow(10.0,8);
+			nSubsidy = rewardRndDwn * COIN;
 			}
 		}
 	}

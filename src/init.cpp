@@ -858,7 +858,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     {
         filesystem::create_directories(blocksDir);
             //Make canary
-            filesystem::path blockcanary = blocksDir / ".correctblockchain";
+            filesystem::path blockcanary = blocksDir / ".correctblockchain2";
             FILE *canary = fopen(blockcanary.string().c_str(), "w");
 
             if(canary != NULL)
@@ -895,7 +895,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     //If the blocks directory exists, make sure the blockchain has our canary
     else
     {
-        filesystem::path blockcanary = blocksDir / ".correctblockchain";
+        filesystem::path blockcanary = blocksDir / ".correctblockchain2";
 
         //If it doesn't, rename the blocks directory to blocks.old and make a new one with our canary inside
         if(!filesystem::exists(blockcanary))

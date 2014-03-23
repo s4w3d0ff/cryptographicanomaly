@@ -1194,9 +1194,12 @@ void MapPort(bool)
 static const char *strMainNetDNSSeed[][2] = {
     {"AnomalyPool 1", "node1.cga.anomalypool.com"},
     {"AnomalyPool 2", "node2.cga.anomalypool.com"},
-    {"cga.inceptioncraft.net", "cga.inceptioncraft.net"},
-    {"cga.thedigitalmint.org", "cga.thedigitalmint.org"},
-    {"Developer Node", "71.105.130.10"},
+    {"Inceptioncraft 1", "cga.inceptioncraft.net"},
+    {"TheDigitalMint 1", "cga.thedigitalmint.org"},
+    {"TheDigitalMint 2", "176.58.92.203"},
+    {"TheDigitalMint 3", "176.58.92.192"},
+    {"TheDigitalMint 4", "176.58.92.170"},
+    {"TheDigitalMint 5", "176.58.88.166"},
     {NULL, NULL}
 };
 
