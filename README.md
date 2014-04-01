@@ -2,7 +2,7 @@
 
 ![Cryptographicanomaly](http://cganomaly.com/imgs/logo.png)
 
-The Elusive Coin
+The Elusive Coin  
 [CGAnomaly.com](CGAnomaly.com)  
 
 ##What is Cryptographic Anomaly?
