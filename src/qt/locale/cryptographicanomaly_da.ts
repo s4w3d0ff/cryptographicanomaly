@@ -2272,8 +2272,8 @@ Adresse: %4
     </message>
     <message>
         <location line="+27"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 13932 or testnet: 113932)</source>
-        <translation>Lyt til JSON-RPC-forbindelser på &lt;port&gt; (standard: 13932 eller testnetværk: 113932)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 13932 or testnet: 13936)</source>
+        <translation>Lyt til JSON-RPC-forbindelser på &lt;port&gt; (standard: 13932 eller testnetværk: 13936)</translation>
     </message>
     <message>
         <location line="+37"/>

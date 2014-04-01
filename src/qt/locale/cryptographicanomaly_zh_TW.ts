@@ -2279,8 +2279,8 @@ Address: %4
     </message>
     <message>
         <location line="+27"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 13932 or testnet: 113932)</source>
-        <translation>在通訊埠 &lt;port&gt; 聽候 JSON-RPC 連線 (預設: 13932, 或若為測試網路: 113932)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 13932 or testnet: 13936)</source>
+        <translation>在通訊埠 &lt;port&gt; 聽候 JSON-RPC 連線 (預設: 13932, 或若為測試網路: 13936)</translation>
     </message>
     <message>
         <location line="+37"/>

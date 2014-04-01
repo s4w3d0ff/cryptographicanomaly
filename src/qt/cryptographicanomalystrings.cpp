@@ -49,7 +49,7 @@ QT_TRANSLATE_NOOP("cryptographicanomaly-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", ""
-"Listen for JSON-RPC connections on <port> (default: 13932 or testnet: 113932)"),
+"Listen for JSON-RPC connections on <port> (default: 13932 or testnet: 13936)"),
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", ""
 "Number of seconds to keep misbehaving peers from reconnecting (default: "
 "86400)"),
