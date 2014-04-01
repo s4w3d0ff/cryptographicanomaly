@@ -1,5 +1,4 @@
-Cryptographicanomaly integration/staging tree
-==#Cryptographic Anomaly - [CGA]
+#Cryptographic Anomaly - [CGA]
 
 ![Cryptographicanomaly](http://cganomaly.com/imgs/logo.png)
 
@@ -11,7 +10,7 @@ Cryptographic Anomaly is a modified clone of Litecoin, which is a lite version o
 
 Cryptographic Anomaly is a crypto-coin that uses a unique block reward algorithm. The block reward is directly effected by the current difficulty. If the difficulty is below 3 then the block reward will be 0.33333333. If the difficulty is above 3 then the algorithm uses the modulo operation to find the remainder of the block number divided by the difficulty. If the remainder falls between 0.25 and 0 then an Anomaly is born, making a bonus block that is worth 1 CGA for that block. If the remainder doesn't fall between 0.25 and 0 then the block reward is 1 divided by the current difficulty.
 
-What this does is as the difficulty increases (from a higher network hash rate due to increased popularity/demand) the amount of anomalies that are being generated decreases. At any given time the probability of 1 CGA coming into existence is, more or less, 1/difficulty (unless the difficulty is 3 or below, then probability is 1/3). The probability of generating a bonus block is (1/diff) * (diff * 4).
+What this does is as the difficulty increases (from a higher network hash rate due to increased popularity/demand) the amount of anomalies that are being generated decreases.
 
 ###Find the maximum amount of CGA (if diff < 3) to come into existence (not counting bonus blocks):
 1 month(30days) = 2,592,000 sec
@@ -23,6 +22,10 @@ This makes CGA the longest minable coin that does not half, gives you "whole" nu
 
 ###Minimum amount of time to "mine out" CGA:
 10 Billion CGA / 259,199.997408 CGA per year = 38,580.2472993827 years
+
+-----------------------------------------------------------------------------------------------------
+
+At any given time the probability of 1 CGA coming into existence is, more or less, 1/difficulty (unless the difficulty is 3 or below, then probability is 1/3). The probability of generating a bonus block is (1/diff) * (diff * 4).
 
 To calculate the probability of how often, yourself (solo-mining) or a pool, will generate 1 CGA you would need to factor in your (or pools) hash-rate. First you need to find the probability of generating an anomaly at any given time (1/difficulty). Then you need to find the probability of you or your pool solving a block (your hash-rate/ network hash-rate). Now multiply those two probabilities together to get your personal probability of generating an anomaly.
 
