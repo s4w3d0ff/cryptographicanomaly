@@ -1,7 +1,7 @@
 '''
 Cryptographicanomaly base58 encoding and decoding.
 
-Based on https://bitcointalk.org/index.php?topic=1026.0 (public domain)
+Based on https://cryptographicanomalytalk.org/index.php?topic=1026.0 (public domain)
 '''
 import hashlib
 

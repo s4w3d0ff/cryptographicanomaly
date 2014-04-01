@@ -2,7 +2,7 @@
  * Qt4 cryptographicanomaly GUI.
  *
  * W.J. van der Laan 2011-2012
- * The Cryptographicanomaly Developers 2011-2013
+ * The Litecoin Developers 2011-2013
  */
 #include "walletstack.h"
 #include "walletview.h"

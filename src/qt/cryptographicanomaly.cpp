@@ -29,8 +29,8 @@
 #include "macdockiconhandler.h"
 #endif
 
-#if defined(CGA_NEED_QT_PLUGINS) && !defined(_CGA_QT_PLUGINS_INCLUDED)
-#define _CGA_QT_PLUGINS_INCLUDED
+#if defined(CRYPTOGRAPHICANOMALY_NEED_QT_PLUGINS) && !defined(_CRYPTOGRAPHICANOMALY_QT_PLUGINS_INCLUDED)
+#define _CRYPTOGRAPHICANOMALY_QT_PLUGINS_INCLUDED
 #define __INSURE__
 #include <QtPlugin>
 Q_IMPORT_PLUGIN(qcncodecs)
@@ -114,7 +114,7 @@ static void handleRunawayException(std::exception *e)
     exit(1);
 }
 
-#ifndef CGA_QT_TEST
+#ifndef CRYPTOGRAPHICANOMALY_QT_TEST
 int main(int argc, char *argv[])
 {
     // Command-line options take precedence:
@@ -307,4 +307,4 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
-#endif // CGA_QT_TEST
+#endif // CRYPTOGRAPHICANOMALY_QT_TEST

@@ -12,7 +12,7 @@ Authors
 License
 -------
 
-Copyright (c) 2009-2014 Bitcoin Developers
+Copyright (c) 2009-2012 Bitcoin Developers
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -76,7 +76,7 @@ Installing the dependencies using MacPorts is very straightforward.
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone git@github.com:s4w3d0ff/cryptographicanomaly.git cryptographicanomaly
+        git clone git@github.com:cryptographicanomaly-project/cryptographicanomaly.git cryptographicanomaly
         cd cryptographicanomaly
 
 2.  Build cryptographicanomalyd:

@@ -1,5 +1,5 @@
-#ifndef CGAGUI_H
-#define CGAGUI_H
+#ifndef CRYPTOGRAPHICANOMALYGUI_H
+#define CRYPTOGRAPHICANOMALYGUI_H
 
 #include <QMainWindow>
 #include <QSystemTrayIcon>
@@ -197,4 +197,4 @@ private slots:
     void detectShutdown();
 };
 
-#endif // CGAGUI_H
+#endif // CRYPTOGRAPHICANOMALYGUI_H

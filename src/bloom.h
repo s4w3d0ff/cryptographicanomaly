@@ -1,8 +1,8 @@
-// Copyright (c) 2012 The Litecoin developers
+// Copyright (c) 2012 The Cryptographicanomaly developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGA_BLOOM_H
-#define CGA_BLOOM_H
+#ifndef CRYPTOGRAPHICANOMALY_BLOOM_H
+#define CRYPTOGRAPHICANOMALY_BLOOM_H
 
 #include <vector>
 
@@ -88,4 +88,4 @@ public:
     void UpdateEmptyFull();
 };
 
-#endif /* CGA_BLOOM_H */
+#endif /* CRYPTOGRAPHICANOMALY_BLOOM_H */

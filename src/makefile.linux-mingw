@@ -7,6 +7,7 @@ DEPSDIR:=/usr/i686-w64-mingw32
 CC := i686-w64-mingw32-gcc
 CXX := i686-w64-mingw32-g++
 
+
 USE_IPV6:=1
 
 INCLUDEPATHS= \
@@ -36,6 +37,7 @@ xCXXFLAGS=-O2 -w -Wall -Wextra -Wformat -Wformat-security -Wno-unused-parameter 
 xLDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -Wl,--large-address-aware -static-libgcc -static-libstdc++ $(LDFLAGS)
 
 TESTDEFS = -DTEST_DATA_DIR=$(abspath test/data)
+
 
 ifneq (${USE_IPV6}, -)
 	DEFS += -DUSE_IPV6=$(USE_IPV6)

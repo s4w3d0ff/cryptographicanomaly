@@ -26,7 +26,7 @@ for Ubuntu >= 12.04 (please read the 'Berkely DB version warning' below):
 
     apt-get install qt4-qmake libqt4-dev build-essential libboost-dev libboost-system-dev \
         libboost-filesystem-dev libboost-program-options-dev libboost-thread-dev \
-        libssl-dev libdb++-dev libminiupnpc-dev
+        libssl-dev libdb++-dev
 
 For Qt 5 you need the following, otherwise you get an error with lrelease when running qmake:
 
@@ -59,7 +59,7 @@ Mac OS X
 ::
 
 	sudo port selfupdate
-	sudo port install boost db48
+	sudo port install boost db48 miniupnpc
 
 - Execute the following commands in a terminal to get the dependencies using HomeBrew:
 
@@ -81,6 +81,7 @@ Mac OS X
 
 Build configuration options
 ============================
+
 
 Notification support for recent (k)ubuntu versions
 ---------------------------------------------------

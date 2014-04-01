@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2012 The Cryptographicanomaly developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -24,8 +24,8 @@
 
 using namespace boost;
 
-const int CGA_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
-const QString CGA_IPC_PREFIX("cryptographicanomaly:");
+const int CRYPTOGRAPHICANOMALY_IPC_CONNECT_TIMEOUT = 1000; // milliseconds
+const QString CRYPTOGRAPHICANOMALY_IPC_PREFIX("cryptographicanomaly:");
 
 //
 // Create a name that is unique for:
@@ -65,7 +65,7 @@ bool PaymentServer::ipcSendCommandLine()
     const QStringList& args = qApp->arguments();
     for (int i = 1; i < args.size(); i++)
     {
-        if (!args[i].startsWith(CGA_IPC_PREFIX, Qt::CaseInsensitive))
+        if (!args[i].startsWith(CRYPTOGRAPHICANOMALY_IPC_PREFIX, Qt::CaseInsensitive))
             continue;
         savedPaymentRequests.append(args[i]);
     }
@@ -74,7 +74,7 @@ bool PaymentServer::ipcSendCommandLine()
     {
         QLocalSocket* socket = new QLocalSocket();
         socket->connectToServer(ipcServerName(), QIODevice::WriteOnly);
-        if (!socket->waitForConnected(CGA_IPC_CONNECT_TIMEOUT))
+        if (!socket->waitForConnected(CRYPTOGRAPHICANOMALY_IPC_CONNECT_TIMEOUT))
             return false;
 
         QByteArray block;
@@ -85,7 +85,7 @@ bool PaymentServer::ipcSendCommandLine()
         socket->write(block);
         socket->flush();
 
-        socket->waitForBytesWritten(CGA_IPC_CONNECT_TIMEOUT);
+        socket->waitForBytesWritten(CRYPTOGRAPHICANOMALY_IPC_CONNECT_TIMEOUT);
         socket->disconnectFromServer();
         delete socket;
         fResult = true;

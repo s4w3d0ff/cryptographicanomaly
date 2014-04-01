@@ -1,8 +1,8 @@
-// Copyright (c) 2012 The Litecoin developers
+// Copyright (c) 2012 The Cryptographicanomaly developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGA_LEVELDB_H
-#define CGA_LEVELDB_H
+#ifndef CRYPTOGRAPHICANOMALY_LEVELDB_H
+#define CRYPTOGRAPHICANOMALY_LEVELDB_H
 
 #include "serialize.h"
 
@@ -150,4 +150,4 @@ public:
     }
 };
 
-#endif // CGA_LEVELDB_H
+#endif // CRYPTOGRAPHICANOMALY_LEVELDB_H

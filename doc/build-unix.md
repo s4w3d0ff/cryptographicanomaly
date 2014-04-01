@@ -1,4 +1,4 @@
-Copyright (c) 2009-2014 Bitcoin Developers
+Copyright (c) 2009-2013 Bitcoin Developers
 
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
@@ -24,7 +24,6 @@ Dependencies
  libssl      SSL Support       Secure communications
  libdb4.8    Berkeley DB       Blockchain & wallet storage
  libboost    Boost             C++ Library
- 
 
 IPv6 support may be disabled by setting:
 

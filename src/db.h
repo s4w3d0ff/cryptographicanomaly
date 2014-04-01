@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2012 The Cryptographicanomaly developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGA_DB_H
-#define CGA_DB_H
+#ifndef CRYPTOGRAPHICANOMALY_DB_H
+#define CRYPTOGRAPHICANOMALY_DB_H
 
 #include "main.h"
 
@@ -324,4 +324,4 @@ public:
     bool Read(CAddrMan& addr);
 };
 
-#endif // CGA_DB_H
+#endif // CRYPTOGRAPHICANOMALY_DB_H

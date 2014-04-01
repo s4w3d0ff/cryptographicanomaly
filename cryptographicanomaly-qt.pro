@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = cryptographicanomaly-qt
 macx:TARGET = "Cryptographicanomaly-Qt"
-VERSION = 1.3.2.1
+VERSION = 1.3.3.1
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -37,7 +37,7 @@ CONFIG += static
 #OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1f
 
 # 
-# Settings for building under Linux, comment out for Windows builds
+# Settings for building under Linux, comment out for Windows and OSX builds
 #
 #BDB_INCLUDE_PATH=/usr/include/db4.8
 

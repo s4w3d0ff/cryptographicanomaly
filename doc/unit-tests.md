@@ -27,7 +27,7 @@ use the Qt unit-testing framework.
 
 To compile and run the tests:
 
-	qmake cryptographicanomaly-qt.pro CGA_QT_TEST=1
+	qmake cryptographicanomaly-qt.pro CRYPTOGRAPHICANOMALY_QT_TEST=1
 	make
 	./cryptographicanomaly-qt_test
 

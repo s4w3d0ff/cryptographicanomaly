@@ -1,9 +1,9 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2012 The Cryptographicanomaly developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGA_UTIL_H
-#define CGA_UTIL_H
+#ifndef CRYPTOGRAPHICANOMALY_UTIL_H
+#define CRYPTOGRAPHICANOMALY_UTIL_H
 
 #include "uint256.h"
 

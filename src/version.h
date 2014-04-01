@@ -1,8 +1,8 @@
-// Copyright (c) 2012 The Litecoin developers
+// Copyright (c) 2012 The Cryptographicanomaly developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGA_VERSION_H
-#define CGA_VERSION_H
+#ifndef CRYPTOGRAPHICANOMALY_VERSION_H
+#define CRYPTOGRAPHICANOMALY_VERSION_H
 
 #include "clientversion.h"
 #include <string>
@@ -25,13 +25,13 @@ extern const std::string CLIENT_DATE;
 // network protocol versioning
 //
 
-static const int PROTOCOL_VERSION = 70005;
+static const int PROTOCOL_VERSION = 70006;
 
 // intial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
 
 // disconnect from peers older than this proto version
-static const int MIN_PEER_PROTO_VERSION = 70005;
+static const int MIN_PEER_PROTO_VERSION = 70006;
 
 // nTime field added to CAddress, starting with this version;
 // if possible, avoid requesting addresses nodes older than this

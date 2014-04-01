@@ -49,7 +49,7 @@ QT_TRANSLATE_NOOP("cryptographicanomaly-core", ""
 "Execute command when the best block changes (%s in cmd is replaced by block "
 "hash)"),
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", ""
-"Listen for JSON-RPC connections on <port> (default: 9332 or testnet: 19332)"),
+"Listen for JSON-RPC connections on <port> (default: 13932 or testnet: 113932)"),
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", ""
 "Number of seconds to keep misbehaving peers from reconnecting (default: "
 "86400)"),
@@ -142,7 +142,7 @@ QT_TRANSLATE_NOOP("cryptographicanomaly-core", "Invalid amount for -mintxfee=<am
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", "Invalid amount for -paytxfee=<amount>: '%s'"),
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", "Invalid amount"),
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", "List commands"),
-QT_TRANSLATE_NOOP("cryptographicanomaly-core", "Listen for connections on <port> (default: 9333 or testnet: 19333)"),
+QT_TRANSLATE_NOOP("cryptographicanomaly-core", "Listen for connections on <port> (default: 13931 or testnet: 113931)"),
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", "Loading addresses..."),
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", "Loading block index..."),
 QT_TRANSLATE_NOOP("cryptographicanomaly-core", "Loading wallet..."),

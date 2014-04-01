@@ -1,5 +1,5 @@
-#ifndef CGAUNITS_H
-#define CGAUNITS_H
+#ifndef CRYPTOGRAPHICANOMALYUNITS_H
+#define CRYPTOGRAPHICANOMALYUNITS_H
 
 #include <QString>
 #include <QAbstractListModel>
@@ -66,4 +66,4 @@ private:
 };
 typedef CryptographicanomalyUnits::Unit CryptographicanomalyUnit;
 
-#endif // CGAUNITS_H
+#endif // CRYPTOGRAPHICANOMALYUNITS_H

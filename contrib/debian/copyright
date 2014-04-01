@@ -6,9 +6,9 @@ Source: http://sourceforge.net/projects/cryptographicanomaly/files/
  https://github.com/cryptographicanomaly/cryptographicanomaly
 
 Files: *
-Copyright: 2009-2012, Cryptographicanomaly Developers
+Copyright: 2009-2012, Bitcoin Developers
 License: Expat
-Comment: The Cryptographicanomaly Developers encompasses the current developers listed on cryptographicanomaly.org,
+Comment: The Bitcoin Developers encompasses the current developers listed on bitcoin.org,
          as well as the numerous contributors to the project.
 
 Files: src/json/*

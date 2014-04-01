@@ -1,4 +1,4 @@
-Copyright (c) 2009-2014 Bitcoin Developers
+Copyright (c) 2009-2013 Bitcoin Developers
 Distributed under the MIT/X11 software license, see the accompanying
 file COPYING or http://www.opensource.org/licenses/mit-license.php.
 This product includes software developed by the OpenSSL Project for use in the [OpenSSL Toolkit](http://www.openssl.org/). This product includes
@@ -26,19 +26,19 @@ OpenSSL         \openssl-1.0.1c-mgw        http://www.openssl.org/source/
 Berkeley DB     \db-4.8.30.NC-mgw          http://www.oracle.com/technology/software/products/berkeley-db/index.html
 Boost           \boost-1.50.0-mgw          http://www.boost.org/users/download/
 
-
 Their licenses:
 
 	OpenSSL        Old BSD license with the problematic advertising requirement
 	Berkeley DB    New BSD license with additional requirement that linked software must be free open source
 	Boost          MIT-like license
 
+
 Versions used in this release:
 
 	OpenSSL      1.0.1c
 	Berkeley DB  4.8.30.NC
 	Boost        1.50.0
-	miniupnpc    1.6
+
 
 
 OpenSSL

@@ -1,8 +1,8 @@
-// Copyright (c) 2012 The Litecoin developers
+// Copyright (c) 2012 The Cryptographicanomaly developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
-#ifndef CGA_MRUSET_H
-#define CGA_MRUSET_H
+#ifndef CRYPTOGRAPHICANOMALY_MRUSET_H
+#define CRYPTOGRAPHICANOMALY_MRUSET_H
 
 #include <set>
 #include <deque>

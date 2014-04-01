@@ -5,9 +5,9 @@ SetCompressor /SOLID lzma
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 1.3.0.1
-!define COMPANY "Cryptographicanomaly"
-!define URL http://CGAnomaly.com
+!define VERSION 0.8.6.2
+!define COMPANY "Cryptographicanomaly project"
+!define URL http://www.cryptographicanomaly.org/
 
 # MUI Symbol Definitions
 !define MUI_ICON "../share/pixmaps/cryptographicanomaly.ico"
@@ -45,13 +45,13 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile cryptographicanomaly-1.2.1.1-win32-setup.exe
+OutFile cryptographicanomaly-0.8.6.2-win32-setup.exe
 InstallDir $PROGRAMFILES\Cryptographicanomaly
 CRCCheck on
 XPStyle on
 BrandingText " "
 ShowInstDetails show
-VIProductVersion 1.2.1.1
+VIProductVersion 0.8.6.2
 VIAddVersionKey ProductName Cryptographicanomaly
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"

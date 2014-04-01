@@ -1,6 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin Developers
-// Copyright (c) 2013-2014 The Cryptographic Anomaly Developers
+// Copyright (c) 2009-2012 The Cryptographicanomaly developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -52,9 +51,9 @@ bool fTxIndex = false;
 unsigned int nCoinCacheSize = 5000;
 
 /** Fees smaller than this (in satoshi) are considered zero fee (for transaction creation) */
-int64 CTransaction::nMinTxFee = 100000;
+int64 CTransaction::nMinTxFee = 1000;
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying) */
-int64 CTransaction::nMinRelayTxFee = 100000;
+int64 CTransaction::nMinRelayTxFee = 1000;
 
 CMedianFilter<int> cPeerBlockCounts(8, 0); // Amount of blocks that other nodes claim to have
 
@@ -1141,7 +1140,27 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 			}
 		}
 	}
-	else if(block > 71000 )					// Update 1.3.2.1
+	else if(block <= 84000 )					// Update 1.3.2.1
+	{
+		if(diff <= 3)
+		{
+			nSubsidy = 0.33333333 * COIN;
+		}
+		else if(diff > 3)
+		{		
+			if(remain < 0.25)
+			{
+			nSubsidy = 1 * COIN;
+			}
+			else
+			{
+			double reward = 1/diff;
+			double rewardRndDwn = floor( pow(10.0,8) * reward ) / pow(10.0,8);
+			nSubsidy = rewardRndDwn * COIN;
+			}
+		}
+	}
+	else if(block > 840000 )					// Update 1.3.3.1
 	{
 		if(diff <= 3)
 		{
@@ -1151,7 +1170,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 		{
 		double remainRndDwn = floor( pow(10.0,8) * remain ) / pow(10.0,8);
 		
-			if(remain < 0.25)
+			if(remainRndDwn < 0.25)
 			{
 			nSubsidy = 1 * COIN;
 			}
@@ -1226,7 +1245,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
         return pindexLast->nBits;
     }
 
-    // Litecoin: This fixes an issue where a 51% attack can change difficulty at will.
+    // Cryptographicanomaly: This fixes an issue where a 51% attack can change difficulty at will.
     // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
     int blockstogoback = nInterval-1;
     if ((pindexLast->nHeight+1) != nInterval)
@@ -1240,7 +1259,7 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
 
     // Limit adjustment step
     int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
-    printf(" nActualTimespan = %"PRI64d" before bounds\n", nActualTimespan);
+    printf("  nActualTimespan = %"PRI64d"  before bounds\n", nActualTimespan);
     if (nActualTimespan < nTargetTimespan/4)
         nActualTimespan = nTargetTimespan/4;
     if (nActualTimespan > nTargetTimespan*4)
@@ -1257,9 +1276,9 @@ unsigned int static GetNextWorkRequired(const CBlockIndex* pindexLast, const CBl
 
     /// debug print
     printf("GetNextWorkRequired RETARGET\n");
-    printf("nTargetTimespan = %"PRI64d" nActualTimespan = %"PRI64d"\n", nTargetTimespan, nActualTimespan);
-    printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
-    printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+    printf("nTargetTimespan = %"PRI64d"    nActualTimespan = %"PRI64d"\n", nTargetTimespan, nActualTimespan);
+    printf("Before: %08x  %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
+    printf("After:  %08x  %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
 
     return bnNew.GetCompact();
 }
@@ -2818,7 +2837,7 @@ bool LoadBlockIndex()
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0xd02602d8812b813b10526d49a92a2b0746dfa1234d2ee62faec57c54a9ef4eb0");
+        hashGenesisBlock = uint256("0xf5ae71e26c74beacc88382716aced69cddf3dffff24f384e1808905e0188f68f");
     }
 
     //
@@ -3301,7 +3320,6 @@ void static ProcessGetData(CNode* pfrom)
                 }
                 if (!pushed) {
                     vNotFound.push_back(inv);
-
                 }
             }
 
@@ -3384,22 +3402,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             pfrom->addrLocal = addrMe;
             SeenLocal(addrMe);
         }
-        if (pfrom->strSubVer == "/Satoshi:1.2.1.1/")
-        {
-            // disconnect from old wallets
-            printf("partner %s is using an old wallet! (1.2.1.1); disconnecting\n", pfrom->addr.ToString().c_str());
-            pfrom->fDisconnect = true;
-            return false;
-        }
- 
-        if (pfrom->strSubVer == "/Satoshi:1.1.2.2/")
-        {
-            // disconnect from old wallets
-            printf("partner %s is using an old wallet! (1.1.2.2); disconnecting\n", pfrom->addr.ToString().c_str());
-            pfrom->fDisconnect = true;
-            return false;
-        }
-        
 
         // Disconnect if we connected to ourself
         if (nNonce == nLocalHostNonce && nNonce > 1)
@@ -4745,20 +4747,7 @@ void static CryptographicanomalyMiner(CWallet *pwallet)
             char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
             loop
             {
-#if defined(USE_SSE2)
-                // Detection would work, but in cases where we KNOW it always has SSE2,
-                // it is faster to use directly than to use a function pointer or conditional.
-#if defined(_M_X64) || defined(__x86_64__) || defined(_M_AMD64) || (defined(MAC_OSX) && defined(__i386__))
-                // Always SSE2: x86_64 or Intel MacOS X
-                scrypt_1024_1_1_256_sp_sse2(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
-#else
-                // Detect SSE2: 32bit x86 Linux or Windows
                 scrypt_1024_1_1_256_sp(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
-#endif
-#else
-                // Generic scrypt
-                scrypt_1024_1_1_256_sp_generic(BEGIN(pblock->nVersion), BEGIN(thash), scratchpad);
-#endif
 
                 if (thash <= hashTarget)
                 {

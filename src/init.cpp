@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin developers
+// Copyright (c) 2009-2012 The Cryptographicanomaly developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,18 +20,6 @@
 
 #ifndef WIN32
 #include <signal.h>
-#endif
-
-#if defined(USE_SSE2)
-#if !defined(MAC_OSX) && (defined(_M_IX86) || defined(__i386__) || defined(__i386))
-#ifdef _MSC_VER
-// MSVC 64bit is unable to use inline asm
-#include <intrin.h>
-#else
-// GCC Linux or i686-w64-mingw32
-#include <cpuid.h>
-#endif
-#endif
 #endif
 
 using namespace std;
@@ -319,7 +307,7 @@ std::string HelpMessage()
         "  -socks=<n>             " + _("Select the version of socks proxy to use (4-5, default: 5)") + "\n" +
         "  -tor=<ip:port>         " + _("Use proxy to reach tor hidden services (default: same as -proxy)") + "\n"
         "  -dns                   " + _("Allow DNS lookups for -addnode, -seednode and -connect") + "\n" +
-        "  -port=<port>           " + _("Listen for connections on <port> (default: 13931 or testnet: 6008)") + "\n" +
+        "  -port=<port>           " + _("Listen for connections on <port> (default: 13931 or testnet: 113931)") + "\n" +
         "  -maxconnections=<n>    " + _("Maintain at most <n> connections to peers (default: 125)") + "\n" +
         "  -addnode=<ip>          " + _("Add a node to connect to and attempt to keep the connection open") + "\n" +
         "  -connect=<ip>          " + _("Connect only to the specified node(s)") + "\n" +
@@ -362,7 +350,7 @@ std::string HelpMessage()
 #endif
         "  -rpcuser=<user>        " + _("Username for JSON-RPC connections") + "\n" +
         "  -rpcpassword=<pw>      " + _("Password for JSON-RPC connections") + "\n" +
-        "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 13932)") + "\n" +
+        "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 13932 or testnet: 113932)") + "\n" +
         "  -rpcallowip=<ip>       " + _("Allow JSON-RPC connections from specified IP address") + "\n" +
 #ifndef QT_GUI
         "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n" +
@@ -510,23 +498,6 @@ bool AppInit2(boost::thread_group& threadGroup)
     sigemptyset(&sa_hup.sa_mask);
     sa_hup.sa_flags = 0;
     sigaction(SIGHUP, &sa_hup, NULL);
-#endif
-
-#if defined(USE_SSE2)
-    unsigned int cpuid_edx=0;
-#if !defined(MAC_OSX) && (defined(_M_IX86) || defined(__i386__) || defined(__i386))
-    // 32bit x86 Linux or Windows, detect cpuid features
-#if defined(_MSC_VER)
-    // MSVC
-    int x86cpuid[4];
-    __cpuid(x86cpuid, 1);
-    cpuid_edx = (unsigned int)buffer[3];
-#else
-    // Linux or i686-w64-mingw32 (gcc-4.6.3)
-    unsigned int eax, ebx, ecx;
-    __get_cpuid(1, &eax, &ebx, &ecx, &cpuid_edx);
-#endif
-#endif
 #endif
 
     // ********************************************************* Step 2: parameter interactions
@@ -698,6 +669,10 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     int64 nStart;
 
+#if defined(USE_SSE2)
+    scrypt_detect_sse2();
+#endif
+
     // ********************************************************* Step 5: verify wallet database integrity
 
     if (!fDisableWallet) {
@@ -846,29 +821,25 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     // ********************************************************* Step 7: load block chain
 
-#if defined(USE_SSE2)
-    scrypt_detect_sse2(cpuid_edx);
-#endif
-
     fReindex = GetBoolArg("-reindex");
 
-    // Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
+// Upgrading to 0.8; hard-link the old blknnnn.dat files into /blocks/
     filesystem::path blocksDir = GetDataDir() / "blocks";
     if (!filesystem::exists(blocksDir))
     {
         filesystem::create_directories(blocksDir);
             //Make canary
-            filesystem::path blockcanary = blocksDir / ".correctblockchain2";
-            FILE *canary = fopen(blockcanary.string().c_str(), "w");
+//            filesystem::path blockcanary = blocksDir / ".correctblockchain2";
+//            FILE *canary = fopen(blockcanary.string().c_str(), "w");
 
-            if(canary != NULL)
-            {
-                //Clean up
-                fclose(canary);
-            }
+//            if(canary != NULL)
+//            {
+//                //Clean up
+//               fclose(canary);
+//            }
 
-            else
-                return InitError(_("Failed to create canary"));
+//            else
+//                return InitError(_("Failed to create canary"));
         bool linked = false;
         for (unsigned int i = 1; i < 10000; i++) {
             filesystem::path source = GetDataDir() / strprintf("blk%04u.dat", i);
@@ -893,46 +864,46 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     //If the blocks directory exists, make sure the blockchain has our canary
-    else
-    {
-        filesystem::path blockcanary = blocksDir / ".correctblockchain2";
+//    else
+//    {
+//        filesystem::path blockcanary = blocksDir / ".correctblockchain2";
 
         //If it doesn't, rename the blocks directory to blocks.old and make a new one with our canary inside
-        if(!filesystem::exists(blockcanary))
-        {
+//        if(!filesystem::exists(blockcanary))
+//        {
             ///Debug print
-            printf("Forked block chain - wiping!\n");
+//            printf("Forked block chain - wiping!\n");
            
             //Rename blocks directory
-            filesystem::rename(blocksDir, GetDataDir() / "blocks.old");
+//            filesystem::rename(blocksDir, GetDataDir() / "blocks.old");
 
             //Make new blocks directory
-            if(filesystem::create_directory(blocksDir))
-           {
+//            if(filesystem::create_directory(blocksDir))
+//           {
                //Make canary
-               FILE *canary = fopen(blockcanary.string().c_str(), "w");
+//               FILE *canary = fopen(blockcanary.string().c_str(), "w");
                
-              if(canary != NULL)
-              {
+//              if(canary != NULL)
+//              {
                   //Clean up
-                  fclose(canary);
+//                  fclose(canary);
 
                  ///Debug print
-                 printf("Block chain successfully wiped.\nReindexing blockchain.\n");
+//                 printf("Block chain successfully wiped.\nReindexing blockchain.\n");
 
-                 //Reindex blockchain
-                 fReindex = true;
-              }
+//                 //Reindex blockchain
+//                 fReindex = true;
+//             }
 
-              else
-                 return InitError(_("Failed to create canary"));
-           }
+//              else
+//                 return InitError(_("Failed to create canary"));
+//           }
 
-          else
-             return InitError(_("Failed to create new blocks directory"));
-        }
+//          else
+//             return InitError(_("Failed to create new blocks directory"));
+//        }
 
-    }
+//    }
 
     // cache size calculations
     size_t nTotalCache = GetArg("-dbcache", 25) << 20;

@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
-// Copyright (c) 2009-2014 The Bitcoin Developers
+// Copyright (c) 2009-2012 The Bitcoin Developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,8 +12,8 @@
 // - E-mail usually won't line-break if there's no punctuation to break at.
 // - Double-clicking selects the whole number as one word if it's all alphanumeric.
 //
-#ifndef CGA_BASE58_H
-#define CGA_BASE58_H
+#ifndef CRYPTOGRAPHICANOMALY_BASE58_H
+#define CRYPTOGRAPHICANOMALY_BASE58_H
 
 #include <string>
 #include <vector>
@@ -457,4 +457,4 @@ public:
     }
 };
 
-#endif // CGA_BASE58_H
+#endif // CRYPTOGRAPHICANOMALY_BASE58_H
