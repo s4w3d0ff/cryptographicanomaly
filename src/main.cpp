@@ -1140,7 +1140,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 			}
 		}
 	}
-	else if(block <= 84000 )					// Update 1.3.2.1
+	else if(block <= 88000 )					// Update 1.3.2.1
 	{
 		if(diff <= 3)
 		{
@@ -1160,7 +1160,7 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 			}
 		}
 	}
-	else if(block > 840000 )					// Update 1.3.3.1
+	else if(block > 88000 )					// Update 1.3.3.1
 	{
 		if(diff <= 3)
 		{
