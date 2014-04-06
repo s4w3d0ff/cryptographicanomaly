@@ -1182,6 +1182,18 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 			}
 		}
 	}
+	//debug nSubsidy if it is worth 0 CGA
+//	if(block > 71000 && nSubsidy == 0)
+//	{
+//	printf("nSubsidy = %.12f\n", nSubsidy);
+//	printf("Block height = %.12f\n", block);
+//	printf("Difficulty = %.12f\n", diff);
+//	printf("Remainder of Block % Diff = %.12f\n", remain);
+//	double remainRndDwn = floor( pow(10.0,8) * remain ) / pow(10.0,8);
+//	printf("Remainder Rounded down = %.12f\n", remainRndDwn);
+//	}
+	
+	
     return nSubsidy + nFees;
 }
 
