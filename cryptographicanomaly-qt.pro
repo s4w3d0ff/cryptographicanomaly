@@ -33,8 +33,8 @@ CONFIG += static
 #BOOST_LIB_PATH=C:/deps/boost_1_55_0/stage/lib
 #BDB_INCLUDE_PATH=C:/deps/db-4.8.30.NC/build_unix
 #BDB_LIB_PATH=C:/deps/db-4.8.30.NC/build_unix
-#OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1f/include
-#OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1f
+#OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1g/include
+#OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1g
 
 # 
 # Settings for building under Linux, comment out for Windows and OSX builds
