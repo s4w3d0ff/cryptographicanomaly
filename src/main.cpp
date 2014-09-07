@@ -75,6 +75,8 @@ int64 nHPSTimerStart = 0;
 int64 nTransactionFee = 0;
 int64 nMinimumInputValue = DUST_HARD_LIMIT;
 
+#define HARDFORK_BLOCK 300800
+
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -1064,8 +1066,13 @@ uint256 static GetOrphanRoot(const CBlockHeader* pblock)
 }
 
 int64 static GetBlockValue(int nHeight, int64 nFees)
-{        
+{
     int64 nSubsidy = 0 * COIN;
+
+    if (nHeight >= HARDFORK_BLOCK) {
+        return nFees;
+    }
+		
     double diff = GetDifficulty();
     double block = nHeight;
     double remain = fmod(block, diff);
@@ -1317,6 +1324,7 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
 
     if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64)BlockLastSolved->nHeight < PastBlocksMin) { return bnProofOfWorkLimit.GetCompact(); }
 
+    int64 LatestBlockTime = BlockLastSolved->GetBlockTime();
     for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
         if (PastBlocksMax > 0 && i > PastBlocksMax) { break; }
         PastBlocksMass++;
@@ -1325,10 +1333,14 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
         else { PastDifficultyAverage = ((CBigNum().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev; }
         PastDifficultyAveragePrev = PastDifficultyAverage;
 
-        PastRateActualSeconds = BlockLastSolved->GetBlockTime() - BlockReading->GetBlockTime();
+        if (BlockLastSolved->nHeight >= HARDFORK_BLOCK && LatestBlockTime < BlockReading->GetBlockTime()) {
+            LatestBlockTime = BlockReading->GetBlockTime();
+        }
+        PastRateActualSeconds = LatestBlockTime - BlockReading->GetBlockTime();
         PastRateTargetSeconds = TargetBlocksSpacingSeconds * PastBlocksMass;
         PastRateAdjustmentRatio = double(1);
         if (PastRateActualSeconds < 0) { PastRateActualSeconds = 0; }
+        if (BlockLastSolved->nHeight >= HARDFORK_BLOCK && PastRateActualSeconds < 1) { PastRateActualSeconds = 1; }
         if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
         PastRateAdjustmentRatio = double(PastRateTargetSeconds) / double(PastRateActualSeconds);
         }
@@ -3475,7 +3487,13 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         CAddress addrFrom;
         uint64 nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
+        bool badVersion = false;
         if (pfrom->nVersion < MIN_PEER_PROTO_VERSION)
+            badVersion = true;
+        if (nBestHeight >= HARDFORK_BLOCK && pfrom->nVersion < 70007)
+            badVersion = true;
+        	
+        if (badVersion)
         {
             // disconnect from peers older than this proto version
             printf("partner %s using obsolete version %i; disconnecting\n", pfrom->addr.ToString().c_str(), pfrom->nVersion);
