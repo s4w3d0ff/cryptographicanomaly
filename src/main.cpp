@@ -75,7 +75,7 @@ int64 nHPSTimerStart = 0;
 int64 nTransactionFee = 0;
 int64 nMinimumInputValue = DUST_HARD_LIMIT;
 
-#define HARDFORK_BLOCK 300800
+#define HARDFORK_BLOCK 320800
 
 
 //////////////////////////////////////////////////////////////////////////////
